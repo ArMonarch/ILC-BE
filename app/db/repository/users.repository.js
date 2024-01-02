@@ -23,7 +23,7 @@ const getUsers = async () => {
         usersArray.push(doc.data());
       });
     }
-    console.log(JSON.stringify(usersArray));
+    // console.log(JSON.stringify(usersArray));
     return usersArray;
   } catch (error) {
     console.error("Error getting users", error);
@@ -42,11 +42,11 @@ const findUser = async (docKey) => {
 const addExptoUser = async (docKey, expPoint) => {
   try {
     const userRef = await userCollection.doc(docKey);
-    console.log(docKey, expPoint);
+    // console.log(docKey, expPoint);
     const userXp = await userRef.update({
       expPoints: firestore.FieldValue.increment(expPoint),
     });
-    console.log(userXp);
+    // console.log(userXp);
 
     return true;
   } catch (error) {

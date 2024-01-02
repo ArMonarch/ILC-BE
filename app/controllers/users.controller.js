@@ -28,7 +28,7 @@ const saveUser = async (req, res, next) => {
     const parsedUser = await parseUserObject(userData);
     if (!userData.uid) throw new Error(`Invalid uid ${userData.uid} `);
     const userExists = await usersRepo.findUser(userData.uid);
-    console.log(userExists);
+    // console.log(userExists);
     if (userExists) {
       return successResponse(res, {
         message: "User already exists",
